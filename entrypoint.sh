@@ -9,5 +9,4 @@ scp -i ssh_key.txt \
     -r $INPUT_REPO_DIR \
     "$INPUT_USER"@"$INPUT_HOST":"$INPUT_REMOTE_DIR"
 
-cat /dev/null > ~/.bash_history
 shred -n 5 -u ssh_key.txt
