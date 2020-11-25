@@ -1,7 +1,7 @@
 #!/bin/sh
 
 echo $INPUT_KEY > ssh_key.txt
-chmod 400 ssh_key.txt
+chmod 600 ssh_key.txt
 
 scp -i ssh_key.txt \
     -o StrictHostKeyChecking=no \
