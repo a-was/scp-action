@@ -1,34 +1,34 @@
-name: 'SCP Files Action'
-author: 'Adam Wasilewski'
-description: 'Secure copy files from repo to remote server'
+name: SCP Files Action
+author: Adam Wasilewski
+description: Secure copy files from repo to remote server
 
 inputs:
   host:
-    description: 'Remote host'
+    description: Remote host
     required: true
   port:
-    description: 'Remote host SSH port'
+    description: Remote host SSH port
     required: true
     default: 22
   user:
-    description: 'Remote host user'
+    description: Remote host user
     required: true
   key:
-    description: 'SSH private key'
+    description: SSH private key
     required: true
-  repo_dir:
-    description: 'Repo directory path. Default whole repo'
+  source:
+    description: Repo directory path. Default whole repo
     required: true
-    default: '.'
-  remote_dir:
-    description: 'Remote directory path. Default home directory'
+    default: "$(pwd)/"
+  destination:
+    description: Remote directory path. Default home directory
     required: true
-    default: '~'
+    default: "~/"
 
 runs:
-  using: 'docker'
-  image: 'Dockerfile'
+  using: docker
+  image: Dockerfile
 
 branding:
-  icon: 'upload-cloud'
-  color: 'gray-dark'
+  icon: "upload-cloud"
+  color: "gray-dark"
