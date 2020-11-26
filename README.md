@@ -45,18 +45,21 @@ jobs:
           user: ${{ secrets.REMOTE_HOST }}
           # SSH private key
           key: ${{ secrets.SSH_PRIVATE_KEY }}
-          # Repo directory path. Default whole repo (.)
-          source: 'dist/'
-          # Remote directory path. Default home directory (~)
+          # Repo directory path. Default whole repo
+          source: 'dist/*'
+          # Remote directory path. Default home directory (~/)
           destination: '/home/user/github/'
 ```
 
-# How `source` and `destination` works:
+# How `source` and `destination` works
 
-Default action will copy whole repo, so if you have repo called `project` you will have `project/` directory on remote server with all files.
+Default action will copy whole repo, so if you have repo called `project`
+you will have `project/` directory on remote server with all files.
 
 
-If you want to copy whole repo, but also remote directory named differently than repo name, you have to set `source` to `"$(pwd)/*"`, and `destination` to your directory path ex. `/home/user/myProject/`.
+If you want to copy whole repo, but also remote directory named differently
+than repo name, you have to set `source` to `"$(pwd)/*"`, and `destination`
+to your directory path, ex. `/home/user/myProject/`.
 On remote server you will have `myProject` directory with `project` repo content.
 ```yaml
 source: "$(pwd)/*"
@@ -65,10 +68,14 @@ destination: /home/user/myProject/
 Note that `./*` won't work!
 
 
-If you want to copy only one repo directory with its name, ex. `myFiles/`, you can set `source` to `myFiles/`. On remote server you will have `myFiles/` directory with its content.
+If you want to copy only one repo directory with its name,
+ex. `myFiles/`, you can set `source` to `myFiles/`.
+On remote server you will have `myFiles/` directory with its content.
 
 
-If you want to copy files from specific directory, ex. `dist/`, you can set `source` to `dist/*`. On remote server you will have your files in specified in `destination` directory.
+If you want to copy files from specific directory,
+ex. `dist/`, you can set `source` to `dist/*`.
+On remote server you will have your files in specified in `destination` directory.
 
 Ex. some website project
 ```yaml
