@@ -1,4 +1,4 @@
-# SCP Action
+# SCP Files Action
 
 Secure copy files from repo to remote server
 
